@@ -36,3 +36,15 @@ test('user can store reaction from reactionble', function () {
     assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
     assertDatabaseCount('reactions', 1);
 });
+
+test('login user can store reaction from reactionble', function () {
+    $user = User::query()->first();
+    auth()->login($user);
+
+    $post = Post::query()->first();
+
+    $post->reaction('fun');
+
+    assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
+    assertDatabaseCount('reactions', 1);
+});
