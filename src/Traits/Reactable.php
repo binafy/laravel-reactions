@@ -5,6 +5,7 @@ namespace Binafy\LaravelReactions\Traits;
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Binafy\LaravelReaction\Models\Reaction;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use Illuminate\Foundation\Auth\User;
 
 trait Reactable
 {
@@ -21,12 +22,36 @@ trait Reactable
     /**
      * React to reactable.
      */
-    public function reaction(string|LaravelReactionTypeEnum $type, \Illuminate\Foundation\Auth\User|null $user = null): Reaction
+    public function reaction(string|LaravelReactionTypeEnum $type, User|null $user = null): Reaction
     {
         if (is_null($user)) {
             $user = auth()->user();
         }
 
         return $user->reaction($type, $this);
+    }
+
+    /**
+     * Remove reaction if exists.
+     */
+    public function removeReaction(User|null $user = null): bool
+    {
+        if (is_null($user)) {
+            $user = auth()->user();
+        }
+
+        return $user->removeReaction($this);
+    }
+
+    /**
+     * Check reactable is reacted by the user.
+     */
+    public function isReacted(User|null $user = null): bool
+    {
+        if (is_null($user)) {
+            $user = auth()->user();
+        }
+
+        return $this->reactions()->whereBelongsTo($user)->exists();
     }
 }
