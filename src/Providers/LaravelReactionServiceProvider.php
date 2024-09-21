@@ -20,5 +20,9 @@ class LaravelReactionServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/laravel-reaction.php' => config_path('laravel-reaction.php'),
         ], 'laravel-reactions-config');
+
+        $this->publishes([
+            __DIR__ . '/../../database/migrations/' => database_path('migrations')
+        ], 'laravel-reactions-migrations');
     }
 }
