@@ -31,19 +31,15 @@ trait Reactor
     }
 
     /**
-     * Remove reaction if exists.
+     * Remove reactions if exists.
      */
-    public function removeReaction(HasReaction $reactable): bool
+    public function removeReactions(HasReaction $reactable): bool
     {
         $userForeignName = config('laravel-relations.user.foreign_key', 'user_id');
 
-        $reactable = $reactable->reactions()->first([$userForeignName => $this->getKey()]);
-
-        if (! $reactable) {
-            return false;
-        }
-
-        $reactable->delete();
+        $reactable->reactions()
+            ->where([$userForeignName => $this->getKey()])
+            ->delete();
 
         return true;
     }
