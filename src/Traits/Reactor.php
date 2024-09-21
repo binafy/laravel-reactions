@@ -2,7 +2,7 @@
 
 namespace Binafy\LaravelReactions\Traits;
 
-use App\Models\Reaction;
+use Binafy\LaravelReaction\Models\Reaction;
 use Binafy\LaravelReaction\Contracts\HasReaction;
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
