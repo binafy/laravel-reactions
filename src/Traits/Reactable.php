@@ -66,4 +66,12 @@ trait Reactable
 
         return $this->reactions()->whereBelongsTo($user)->exists();
     }
+
+    /**
+     * Get react count by type.
+     */
+    public function getReactCountByType(string|LaravelReactionTypeEnum $type): int
+    {
+        return $this->reactions()->where('type', $type)->count();
+    }
 }
