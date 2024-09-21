@@ -34,13 +34,13 @@ trait Reactable
     /**
      * Remove reaction if exists.
      */
-    public function removeReaction(User|null $user = null): bool
+    public function removeReaction(string|LaravelReactionTypeEnum $type, User|null $user = null): bool
     {
         if (is_null($user)) {
             $user = auth()->user();
         }
 
-        return $user->removeReaction($this);
+        return $user->removeReaction($type, $this);
     }
 
     /**

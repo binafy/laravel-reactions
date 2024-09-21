@@ -63,3 +63,16 @@ test('user can not remove one reaction when type is wrong', function () {
     // DB Assertions
     assertDatabaseCount('reactions', 1);
 });
+
+test('user can remove one reaction with reactable and type', function () {
+    $user = User::query()->first();
+    $post = Post::query()->first();
+
+    $post->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $user);
+
+    // Remove reaction
+    $post->removeReaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $user);
+
+    // DB Assertions
+    assertDatabaseCount('reactions', 0);
+});
