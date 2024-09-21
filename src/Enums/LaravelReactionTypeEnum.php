@@ -2,6 +2,10 @@
 
 namespace Binafy\LaravelReaction\Enums;
 
+/*
+ * You can use these reactions, but also you can store custom reaction.
+ * This enum file helps to you for store reaction type.
+ */
 enum LaravelReactionTypeEnum: string
 {
     case REACTION_LIKE = 'like';
