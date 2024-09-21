@@ -104,3 +104,18 @@ test('user can remove all reactions with reactable', function () {
     // DB Assertions
     assertDatabaseCount('reactions', 0);
 });
+
+test('login user can remove all reactions with reactable', function () {
+    $user = User::query()->first();
+    auth()->login($user);
+
+    $post = Post::query()->first();
+
+    $post->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, );
+
+    // Remove reaction
+    $post->removeReactions();
+
+    // DB Assertions
+    assertDatabaseCount('reactions', 0);
+});
