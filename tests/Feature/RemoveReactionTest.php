@@ -48,3 +48,18 @@ test('user can remove one reaction with custom type', function () {
     // DB Assertions
     assertDatabaseCount('reactions', 1);
 });
+
+test('user can not remove one reaction when type is wrong', function () {
+    $user = User::query()->first();
+    $post = Post::query()->first();
+
+    $user->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $post);
+
+    // Remove reaction
+    $isDeleted = $user->removeReaction('fun', $post);
+
+    \PHPUnit\Framework\assertFalse($isDeleted);
+
+    // DB Assertions
+    assertDatabaseCount('reactions', 1);
+});
