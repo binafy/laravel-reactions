@@ -34,3 +34,17 @@ test('user can remove one reaction with enum', function () {
     // DB Assertions
     assertDatabaseCount('reactions', 1);
 });
+
+test('user can remove one reaction with custom type', function () {
+    $user = User::query()->first();
+    $post = Post::query()->first();
+
+    $user->reaction('fun', $post);
+    $user->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $post);
+
+    // Remove reaction
+    $user->removeReaction('fun', $post);
+
+    // DB Assertions
+    assertDatabaseCount('reactions', 1);
+});
