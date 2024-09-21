@@ -43,4 +43,28 @@ trait Reactor
 
         return true;
     }
+
+    /**
+     * Remove reaction if exists.
+     */
+    public function removeReaction(string|LaravelReactionTypeEnum $type, HasReaction $reactable): bool
+    {
+        $userForeignName = config('laravel-relations.user.foreign_key', 'user_id');
+
+        if ($type instanceof LaravelReactionTypeEnum) {
+            $type = $type->value;
+        }
+
+        $reactable = $reactable->reactions()
+            ->where([$userForeignName => $this->getKey(), 'type' => $type])
+            ->first();
+
+        if (!$reactable) {
+            return false;
+        }
+
+        $reactable->delete();
+
+        return true;
+    }
 }
