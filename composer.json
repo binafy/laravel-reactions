@@ -1,0 +1,19 @@
+{
+    "name": "binafy/laravel-reactions",
+    "description": "React to something in Laravel framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Binafy\\LaravelReactions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Milwad",
+            "email": "milwad.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
