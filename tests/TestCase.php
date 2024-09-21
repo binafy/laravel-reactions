@@ -5,6 +5,7 @@ namespace Tests;
 use Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Artisan;
 use Tests\SetUp\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -48,5 +49,14 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
         // Set user model for monitoring config
         $app['config']->set('laravel-reactions.user.model', User::class);
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->loadMigrationsFrom(__DIR__.'/SetUp/Migrations');
+
+        Artisan::call('migrate');
     }
 }
