@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Tests\SetUp\Models;
 
 use Binafy\LaravelReaction\Contracts\HasReaction;
 use Binafy\LaravelReactions\Traits\Reactable;
