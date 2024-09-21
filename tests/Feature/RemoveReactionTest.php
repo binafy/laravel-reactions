@@ -3,6 +3,7 @@
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Tests\SetUp\Models\Post;
 use Tests\SetUp\Models\User;
+
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseMissing;
 
