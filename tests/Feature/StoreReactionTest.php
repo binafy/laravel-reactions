@@ -17,7 +17,7 @@ test('user can store reaction with reaction enum', function () {
 
     $user->reaction(LaravelReactionTypeEnum::REACTION_ANGRY->value, $post);
 
-    assertDatabaseHas('reactions', ['user_id' => $user->id]);
+    assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => LaravelReactionTypeEnum::REACTION_ANGRY->value]);
     assertDatabaseCount('reactions', 1);
 });
 
