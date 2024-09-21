@@ -3,6 +3,7 @@
 namespace Binafy\LaravelReactions\Traits;
 
 use App\Models\Reaction;
+use Binafy\LaravelReaction\Contracts\HasReaction;
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 
@@ -13,7 +14,7 @@ trait Reactor
     /**
      * React to reactable.
      */
-    public function react(string|LaravelReactionTypeEnum $type, $reactable): Reaction
+    public function react(string|LaravelReactionTypeEnum $type, HasReaction $reactable): Reaction
     {
         $userForeignName = config('laravel-relations.user.foreign_key', 'user_id');
 
