@@ -20,3 +20,17 @@ test('user can store reaction with reaction enum', function () {
     assertDatabaseHas('reactions', ['user_id' => $user->id]);
     assertDatabaseCount('reactions', 1);
 });
+
+test('user can store reaction with custom reaction type', function () {
+    $user = User::query()->create([
+        'name' => 'milwad',
+        'email' => 'milwad@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $post = Post::query()->create(['title' => 'new post']);
+
+    $user->reaction('fun', $post);
+
+    assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
+    assertDatabaseCount('reactions', 1);
+});
