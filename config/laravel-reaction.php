@@ -4,7 +4,7 @@ return [
     /*
      * The table name.
      */
-    'table' => 'reaction',
+    'table' => 'reactions',
 
     'user' => [
         /*
