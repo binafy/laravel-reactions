@@ -34,3 +34,17 @@ test('user can store reaction with custom reaction type', function () {
     assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
     assertDatabaseCount('reactions', 1);
 });
+
+test('user can store reaction from reactionble', function () {
+    $user = User::query()->create([
+        'name' => 'milwad',
+        'email' => 'milwad@gmail.com',
+        'password' => bcrypt('password'),
+    ]);
+    $post = Post::query()->create(['title' => 'new post']);
+
+    $post->reaction('fun', $user);
+
+    assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
+    assertDatabaseCount('reactions', 1);
+});
