@@ -14,7 +14,7 @@ trait Reactor
     /**
      * React to reactable.
      */
-    public function react(string|LaravelReactionTypeEnum $type, HasReaction $reactable): Reaction
+    public function reaction(string|LaravelReactionTypeEnum $type, HasReaction $reactable): Reaction
     {
         $userForeignName = config('laravel-relations.user.foreign_key', 'user_id');
 
@@ -28,5 +28,23 @@ trait Reactor
             'reactable_id' => $reactable->getKey(),
             'reactable_type' => $reactable::class,
         ]);
+    }
+
+    /**
+     * Remove reaction if exists.
+     */
+    public function removeReaction(HasReaction $reactable): bool
+    {
+        $userForeignName = config('laravel-relations.user.foreign_key', 'user_id');
+
+        $reactable = $reactable->reactions()->first([$userForeignName => $this->getKey()]);
+
+        if (! $reactable) {
+            return false;
+        }
+
+        $reactable->delete();
+
+        return true;
     }
 }
