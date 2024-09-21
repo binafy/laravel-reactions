@@ -6,6 +6,7 @@ use Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Tests\SetUp\Models\Post;
 use Tests\SetUp\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -58,5 +59,12 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $this->loadMigrationsFrom(__DIR__.'/SetUp/Migrations');
 
         Artisan::call('migrate');
+
+        User::query()->create([
+            'name' => 'milwad',
+            'email' => 'milwad@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+        Post::query()->create(['title' => 'new post']);
     }
 }

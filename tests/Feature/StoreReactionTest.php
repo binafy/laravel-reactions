@@ -8,12 +8,8 @@ use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
 
 test('user can store reaction with reaction enum', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
-    $post = Post::query()->create(['title' => 'new post']);
+    $user = User::query()->first();
+    $post = Post::query()->first();
 
     $user->reaction(LaravelReactionTypeEnum::REACTION_ANGRY->value, $post);
 
@@ -22,12 +18,8 @@ test('user can store reaction with reaction enum', function () {
 });
 
 test('user can store reaction with custom reaction type', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
-    $post = Post::query()->create(['title' => 'new post']);
+    $user = User::query()->first();
+    $post = Post::query()->first();
 
     $user->reaction('fun', $post);
 
@@ -36,12 +28,8 @@ test('user can store reaction with custom reaction type', function () {
 });
 
 test('user can store reaction from reactionble', function () {
-    $user = User::query()->create([
-        'name' => 'milwad',
-        'email' => 'milwad@gmail.com',
-        'password' => bcrypt('password'),
-    ]);
-    $post = Post::query()->create(['title' => 'new post']);
+    $user = User::query()->first();
+    $post = Post::query()->first();
 
     $post->reaction('fun', $user);
 
