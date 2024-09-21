@@ -24,4 +24,23 @@ class Reaction extends Model
     }
 
     // Relations
+
+    /**
+     * Reactable morph relation.
+     */
+    public function reactable(): \Illuminate\Database\Eloquent\Relations\MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * Relation one-to-many, User model.
+     */
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(
+            config('laravel-reactions.user.model'),
+            config('laravel-reactions.user.foreign_key')
+        );
+    }
 }
