@@ -22,18 +22,11 @@ trait Reactor
             $type = $type->value;
         }
 
-        $react = $reactable->reactions()
-            ->where([
-                $userForeignName => $this->getKey(),
-                'type' => $type,
-                'reactable_id' => $reactable->getKey(),
-                'reactable_type' => $reactable::class,
-            ])->first();
-
-        if (! $react) {
-            return $this->storeReact($type, $reactable);
-        }
-
-        return $react;
+        return $reactable->reactions()->firstOrCreate([
+            $userForeignName => $this->getKey(),
+            'type' => $type,
+            'reactable_id' => $reactable->getKey(),
+            'reactable_type' => $reactable::class,
+        ]);
     }
 }
