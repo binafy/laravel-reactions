@@ -2,10 +2,13 @@
 
 namespace Tests\SetUp\Models;
 
+use Binafy\LaravelReactions\Traits\Reactor;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use Reactor;
+
     /**
      * Set fillable for columns.
      *

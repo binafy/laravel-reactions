@@ -5,7 +5,7 @@ namespace Tests;
 use Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\SetUp\User;
+use Tests\SetUp\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
