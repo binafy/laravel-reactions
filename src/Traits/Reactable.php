@@ -44,6 +44,18 @@ trait Reactable
     }
 
     /**
+     * Remove all reactions if exists.
+     */
+    public function removeReactions(string|User|null $user = null): bool
+    {
+        if (is_null($user)) {
+            $user = auth()->user();
+        }
+
+        return $user->removeReactions($this);
+    }
+
+    /**
      * Check reactable is reacted by the user.
      */
     public function isReacted(User|null $user = null): bool
