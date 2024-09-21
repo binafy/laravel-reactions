@@ -15,4 +15,13 @@ class Reaction extends Model
      * @var string[]
      */
     protected $guarded = ['id'];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->setTable(config('laravel-reactions.table', 'reactions'));
+    }
+
+    // Relations
 }
