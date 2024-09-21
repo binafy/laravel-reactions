@@ -14,4 +14,11 @@ class LaravelReactionServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-reaction.php', 'laravel-reactions');
     }
+
+    public function boot(): void
+    {
+        $this->publishes([
+            __DIR__ . '/../../config/laravel-reaction.php' => config_path('laravel-reaction.php'),
+        ], 'laravel-reactions-config');
+    }
 }
