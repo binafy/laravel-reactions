@@ -3,7 +3,7 @@
 namespace Tests\SetUp\Models;
 
 use Binafy\LaravelReaction\Contracts\HasReaction;
-use Binafy\LaravelReactions\Traits\Reactable;
+use Binafy\LaravelReaction\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

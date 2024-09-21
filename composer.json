@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Binafy\\LaravelReactions\\": "src/"
+            "Binafy\\LaravelReaction\\": "src/"
         }
     },
     "autoload-dev": {

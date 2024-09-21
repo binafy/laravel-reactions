@@ -37,7 +37,7 @@ return new class extends Migration
 
             $table->morphs('reactable');
             $table->string('type');
-            $table->string('ip');
+            $table->string('ip')->nullable();
 
             $table->unique([$userForeignName, 'reactable_type', 'reactable_id', 'ip'], 'reaction_user_name_per_ip');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Binafy\LaravelReactions\Traits;
+namespace Binafy\LaravelReaction\Traits;
 
 use Binafy\LaravelReaction\Models\Reaction;
 use Binafy\LaravelReaction\Contracts\HasReaction;
