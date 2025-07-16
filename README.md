@@ -48,3 +48,8 @@ If you want to publish the migrations you can use this command:
 php artisan vendor:publish --tag="laravel-user-monitoring-migrations"
 ```
 
+For convenience, you can use this command to publish config, migration, and ... files:
+
+```shell
+php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
+```
