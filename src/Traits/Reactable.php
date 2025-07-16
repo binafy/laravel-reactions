@@ -88,6 +88,17 @@ trait Reactable
             ->mapWithKeys(fn (Reaction $reaction) => [$reaction->type => $reaction->total]);
     }
 
+    /**
+     * Get all reactors.
+     */
+    public function getReactors(): \Illuminate\Support\Collection
+    {
+        return $this
+            ->reactions()
+            ->get()
+            ->map(fn (Reaction $reaction) => $reaction->user);
+    }
+
     // Attributes
 
     /**
