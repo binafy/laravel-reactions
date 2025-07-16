@@ -54,6 +54,11 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
+<a name="security"></a>
+## Security
+
+If you discover any security-related issues, please email `binafy23@gmail.com` instead of using the issue tracker.
+
 <a name="chanelog"></a>
 ## Changelog
 
