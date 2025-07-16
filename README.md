@@ -45,7 +45,7 @@ php artisan vendor:publish --tag="laravel-reactions-config"
 If you want to publish the migrations you can use this command:
 
 ```shell
-php artisan vendor:publish --tag="laravel-user-monitoring-migrations"
+php artisan vendor:publish --tag="laravel-reactions-migrations"
 ```
 
 For convenience, you can use this command to publish config, migration, and ... files:
@@ -54,7 +54,10 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
-<a name="donate"></a>
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=binafy/laravel-reactions&type=Date)](https://star-history.com/#binafy/laravel-reactions&Date)
+
 ## Donate
 
 If this package is helpful for you, you can buy a coffee for me :) ❤️
