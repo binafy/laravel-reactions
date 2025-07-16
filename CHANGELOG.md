@@ -8,6 +8,14 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## v0.6.0 - 2025-07-16
+
+### What's Changed
+
+* Improve composer by [@milwad-dev](https://github.com/milwad-dev) in https://github.com/binafy/laravel-reactions/pull/3
+
+**Full Changelog**: https://github.com/binafy/laravel-reactions/compare/v0.5.0...v0.6.0
+
 ## v0.5.0 - 2025-07-16
 
 ### What's Changed
