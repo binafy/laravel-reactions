@@ -54,6 +54,10 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/binafy/laravel-reactions/blob/1.x/LICENSE) for more information.
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=binafy/laravel-reactions&type=Date)](https://star-history.com/#binafy/laravel-reactions&Date)
