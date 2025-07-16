@@ -62,6 +62,10 @@
             "pestphp/pest-plugin": true
         }
     },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html ./coverage"
+    },
     "extra": {
         "laravel": {
             "providers": [
