@@ -22,3 +22,14 @@ Laravel Reactions is a simple and flexible package that allows you to add reacti
 - Eloquent relationships for seamless integration
 - Built-in support for custom reaction types
 - Lightweight and easy to customize
+
+## Installation
+
+- ```PHP >= 8.1```
+- ```Laravel >= 10.0```
+
+You can install the package with Composer:
+
+```bash
+composer require binafy/laravel-user-monitoring
+```
