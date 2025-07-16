@@ -16,6 +16,13 @@ class Reaction extends Model
      */
     protected $guarded = ['id'];
 
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var string[]
+     */
+    protected $with = ['reactable'];
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -40,7 +47,7 @@ class Reaction extends Model
     {
         return $this->belongsTo(
             config('laravel-reactions.user.model'),
-            config('laravel-reactions.user.foreign_key')
+            config('laravel-reactions.user.foreign_key'),
         );
     }
 }
