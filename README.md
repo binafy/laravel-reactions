@@ -54,6 +54,33 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
+## Usage
+
+### SetUp Model
+
+Reactor:
+
+```php
+use Binafy\LaravelReaction\Traits\Reactor;
+
+class User extends Authenticatable
+{
+    use Reactor;
+}
+```
+
+Reactable:
+
+```php
+use Binafy\LaravelReaction\Contracts\HasReaction;
+use Binafy\LaravelReaction\Traits\Reactable;
+
+class Post extends Model implements HasReaction
+{
+    use Reactable;
+}
+```
+
 ## Contributors
 
 Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-reactions/graphs/contributors).
