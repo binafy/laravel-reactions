@@ -74,4 +74,15 @@ trait Reactable
     {
         return $this->reactions()->where('type', $type)->count();
     }
+
+    // Attributes
+
+
+    /**
+     * Get is_reacted attribute.
+     */
+    public function isReactedAttribute(): bool
+    {
+        return $this->isReacted();
+    }
 }
