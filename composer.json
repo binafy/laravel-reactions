@@ -1,6 +1,6 @@
 {
     "name": "binafy/laravel-reactions",
-    "description": "React to something in Laravel framework",
+    "description": "Laravel Reactions is a simple and flexible package that allows you to add reaction functionality to any Eloquent model",
     "type": "library",
     "license": "MIT",
     "autoload": {
