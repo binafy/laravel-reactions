@@ -1,8 +1,30 @@
 {
     "name": "binafy/laravel-reactions",
-    "description": "React to something in Laravel framework",
+    "description": "Laravel Reactions is a simple and flexible package that allows you to add reaction functionality to any Eloquent model",
+    "keywords": [
+        "laravel reactions",
+        "laravel-reactions",
+        "binafy/laravel-reactions",
+        "binafy",
+        "milwad",
+        "milwad khosravi",
+        "fun developer",
+        "laravel reactions package",
+        "laravel reactions github",
+        "laravel",
+        "laravel library",
+        "reaction",
+        "reactions",
+        "like",
+        "love",
+        "clap",
+        "eloquent",
+        "laravel reaction eloquent"
+    ],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/binafy/laravel-reactions",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Binafy\\LaravelReaction\\": "src/"
@@ -15,11 +37,17 @@
     },
     "authors": [
         {
-            "name": "Milwad",
-            "email": "milwad.dev@gmail.com"
+            "name": "Milwad Khosravi",
+            "email": "milwad.dev@gmail.com",
+            "role": "author",
+            "homepage": "https://github.com/milwad-dev"
+        },
+        {
+            "name": "Binafy",
+            "role": "owner",
+            "homepage": "https://github.com/binafy"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^8.1",
         "laravel/framework": "^10.0|^11.0"
@@ -29,9 +57,14 @@
         "orchestra/testbench": "^8.0|^9.0"
     },
     "config": {
+        "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html ./coverage"
     },
     "extra": {
         "laravel": {
