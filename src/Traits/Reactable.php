@@ -75,8 +75,20 @@ trait Reactable
         return $this->reactions()->where('type', $type)->count();
     }
 
-    // Attributes
+    /**
+     * Get reactions with count.
+     */
+    public function getReactionsWithCount(): \Illuminate\Support\Collection
+    {
+        return $this
+            ->reactions()
+            ->groupBy('type')
+            ->selectRaw('type, count(id) as total')
+            ->get()
+            ->mapWithKeys(fn (Reaction $reaction) => [$reaction->type => $reaction->total]);
+    }
 
+    // Attributes
 
     /**
      * Get is_reacted attribute.
