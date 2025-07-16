@@ -23,6 +23,7 @@
     ],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/binafy/laravel-reactions",
     "autoload": {
         "psr-4": {
             "Binafy\\LaravelReaction\\": "src/"
