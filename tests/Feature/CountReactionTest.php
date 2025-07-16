@@ -21,3 +21,27 @@ test('get react count by type', function () {
         2
     );
 });
+
+test('getReactionsWithCount method work correctly', function () {
+    $user = User::query()->first();
+    $user2 = User::query()->create([
+        'name' => 'User 2',
+        'email' => 'user2@gmail.com',
+        'password' => bcrypt(123456),
+    ]);
+    $user3 = User::query()->create([
+        'name' => 'User 3',
+        'email' => 'user3@gmail.com',
+        'password' => bcrypt(123456),
+    ]);
+    $post = Post::query()->first();
+
+    $post->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $user);
+    $post->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $user2);
+    $post->reaction(LaravelReactionTypeEnum::REACTION_CLAP->value, $user3);
+
+    assertEquals(
+        $post->getReactionsWithCount()->toArray(),
+        [LaravelReactionTypeEnum::REACTION_CLAP->value => 3],
+    );
+});
