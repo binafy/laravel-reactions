@@ -54,6 +54,11 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
+<a name="chanelog"></a>
+## Changelog
+
+The changelog can be found in the `CHANGELOG.md` file of the GitHub repository.
+
 ## License
 
 The MIT License (MIT). Please see [License File](https://github.com/binafy/laravel-reactions/blob/1.x/LICENSE) for more information.
