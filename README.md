@@ -42,3 +42,9 @@ If you want to publish a config file you can use this command:
 php artisan vendor:publish --tag="laravel-reactions-config"
 ```
 
+If you want to publish the migrations you can use this command:
+
+```shell
+php artisan vendor:publish --tag="laravel-user-monitoring-migrations"
+```
+
