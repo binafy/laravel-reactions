@@ -24,6 +24,7 @@
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/binafy/laravel-reactions",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Binafy\\LaravelReaction\\": "src/"
@@ -36,11 +37,17 @@
     },
     "authors": [
         {
-            "name": "Milwad",
-            "email": "milwad.dev@gmail.com"
+            "name": "Milwad Khosravi",
+            "email": "milwad.dev@gmail.com",
+            "role": "author",
+            "homepage": "https://github.com/milwad-dev"
+        },
+        {
+            "name": "Binafy",
+            "role": "owner",
+            "homepage": "https://github.com/binafy"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^8.1",
         "laravel/framework": "^10.0|^11.0"
