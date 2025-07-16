@@ -31,5 +31,14 @@ Laravel Reactions is a simple and flexible package that allows you to add reacti
 You can install the package with Composer:
 
 ```bash
-composer require binafy/laravel-user-monitoring
+composer require binafy/laravel-reactions
 ```
+
+## Publish
+
+If you want to publish a config file you can use this command:
+
+```shell
+php artisan vendor:publish --tag="laravel-reactions-config"
+```
+
