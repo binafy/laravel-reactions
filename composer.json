@@ -1,6 +1,26 @@
 {
     "name": "binafy/laravel-reactions",
     "description": "Laravel Reactions is a simple and flexible package that allows you to add reaction functionality to any Eloquent model",
+    "keywords": [
+        "laravel reactions",
+        "laravel-reactions",
+        "binafy/laravel-reactions",
+        "binafy",
+        "milwad",
+        "milwad khosravi",
+        "fun developer",
+        "laravel reactions package",
+        "laravel reactions github",
+        "laravel",
+        "laravel library",
+        "reaction",
+        "reactions",
+        "like",
+        "love",
+        "clap",
+        "eloquent",
+        "laravel reaction eloquent"
+    ],
     "type": "library",
     "license": "MIT",
     "autoload": {
