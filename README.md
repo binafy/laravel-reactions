@@ -54,12 +54,16 @@ For convenience, you can use this command to publish config, migration, and ... 
 php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelReactionServiceProvider"
 ```
 
-<a name="security"></a>
+## Contributors
+
+Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-reactions/graphs/contributors).
+
+<a href="https://github.com/binafy/laravel-reactions/graphs/contributors"><img src="https://opencollective.com/laravel-reactions/contributors.svg?width=890&button=false" /></a>
+
 ## Security
 
 If you discover any security-related issues, please email `binafy23@gmail.com` instead of using the issue tracker.
 
-<a name="chanelog"></a>
 ## Changelog
 
 The changelog can be found in the `CHANGELOG.md` file of the GitHub repository.
