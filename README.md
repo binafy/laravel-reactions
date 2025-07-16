@@ -2,6 +2,13 @@
 
 <img src="https://banners.beyondco.de/Laravel%20Reactions.png?theme=dark&packageManager=composer+require&packageName=binafy%2Flaravel-reactions&pattern=bathroomFloor&style=style_2&description=Flexible+emoji+reactions+for+Laravel&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Binafy Laravel Reactions">
 
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/binafy/laravel-reactions/php)](https://packagist.org/packages/binafy/laravel-reactions)
+[![Latest Stable Version](https://img.shields.io/packagist/v/binafy/laravel-reactions.svg?style=flat-square)](https://packagist.org/packages/binafy/laravel-reactions)
+[![Total Downloads](https://img.shields.io/packagist/dt/binafy/laravel-reactions.svg?style=flat-square)](https://packagist.org/packages/binafy/laravel-reactions)
+[![License](https://img.shields.io/packagist/l/binafy/laravel-reactions)](https://packagist.org/packages/binafy/laravel-reactions)
+[![Passed Tests](https://github.com/binafy/laravel-reactions/actions/workflows/tests.yml/badge.svg)](https://github.com/binafy/laravel-reactions/actions/workflows/tests.yml)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/binafy/laravel-reactions)
+
 ## Introduction
 
 Laravel Reactions is a simple and flexible package that allows you to add reaction functionality (like 👍, ❤️, 😂, etc.) to any Eloquent model in your Laravel application. Whether you're building a social network, blog, or forum, this package makes it easy to let users express themselves through customizable reactions.
