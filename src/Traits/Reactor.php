@@ -2,6 +2,7 @@
 
 namespace Binafy\LaravelReaction\Traits;
 
+use Binafy\LaravelReaction\Events\RemoveReactionEvent;
 use Binafy\LaravelReaction\Events\StoreReactionEvent;
 use Binafy\LaravelReaction\Models\Reaction;
 use Binafy\LaravelReaction\Contracts\HasReaction;
@@ -71,6 +72,9 @@ trait Reactor
         }
 
         $reactable->delete();
+
+        // Dispatch event
+        RemoveReactionEvent::dispatch();
 
         return true;
     }
