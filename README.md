@@ -171,7 +171,37 @@ $post = Post::find(1);
 $reactors = $post->getReactors();
 ```
 
+### Removing Reactions
 
+Reactions can be removed either by type or completely:
+
+#### Remove Specific Reaction Type
+
+```php
+$user = User::find(1);
+$post = Post::find(1);
+
+// Remove specific reaction type
+$user->removeReaction('like', $post);
+
+// Or from the reactable side
+$post->removeReaction('like', $user);
+$post->removeReaction('like'); // For authenticated user
+```
+
+#### Remove All Reactions
+
+```php
+$user = User::find(1);
+$post = Post::find(1);
+
+// Remove all reactions by user on this post
+$user->removeReactions($post);
+
+// Or from the reactable side
+$post->removeReactions($user);
+$post->removeReactions(); // For authenticated user
+```
 
 ## Contributors
 
