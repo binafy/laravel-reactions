@@ -203,6 +203,14 @@ $post->removeReactions($user);
 $post->removeReactions(); // For authenticated user
 ```
 
+### Events
+
+| Event                    | Description               |
+|--------------------------|---------------------------|
+| `StoreReactionEvent`     | When store new reaction   |
+| `RemoveReactionEvent`    | When remove a reaction    |
+| `RemoveAllReactionEvent` | When remove all reactions |
+
 ## Contributors
 
 Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-reactions/graphs/contributors).
