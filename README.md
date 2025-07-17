@@ -11,7 +11,7 @@
 
 ## Introduction
 
-Laravel Reactions is a simple and flexible package that allows you to add reaction functionality (like 👍, ❤️, 😂, etc.) to any Eloquent model in your Laravel application. Whether you're building a social network, blog, or forum, this package makes it easy to let users express themselves through customizable reactions.
+Laravel Reactions is a simple and flexible package that enables you to add reaction functionality (such as 👍, ❤️, 😂, etc.) to any Eloquent model in your Laravel application. Whether you're building a social network, blog, or forum, this package makes it easy for users to express themselves through customizable reactions.
 
 🔧 Features:
 
@@ -36,13 +36,13 @@ composer require binafy/laravel-reactions
 
 ## Publish
 
-If you want to publish a config file you can use this command:
+If you want to publish a config file, you can use this command:
 
 ```shell
 php artisan vendor:publish --tag="laravel-reactions-config"
 ```
 
-If you want to publish the migrations you can use this command:
+If you want to publish the migrations, you can use this command:
 
 ```shell
 php artisan vendor:publish --tag="laravel-reactions-migrations"
@@ -132,7 +132,7 @@ if ($post->isReacted($user)) {
     echo "User has reacted to this post";
 }
 
-// Check if currently authenticated user reacted
+// Check if the currently authenticated user reacted
 if ($post->isReacted()) {
     echo "You have reacted to this post";
 }
@@ -195,7 +195,7 @@ $post->removeReaction('like'); // For authenticated user
 $user = User::find(1);
 $post = Post::find(1);
 
-// Remove all reactions by user on this post
+// Remove all reactions by the user on this post
 $user->removeReactions($post);
 
 // Or from the reactable side
