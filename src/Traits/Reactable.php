@@ -104,7 +104,7 @@ trait Reactable
     /**
      * Get is_reacted attribute.
      */
-    public function isReactedAttribute(): bool
+    public function getIsReactedAttribute(): bool
     {
         return $this->isReacted();
     }
