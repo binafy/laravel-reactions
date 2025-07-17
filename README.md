@@ -83,7 +83,41 @@ class Post extends Model implements HasReaction
 }
 ```
 
+### Creating Reactions
 
+There are multiple ways to create reactions depending on your application's needs. You can create reactions from the user perspective or from the reactable content perspective.
+
+#### From User Models
+
+Users can react to any reactable content using the `reaction()` method from the `Reactor` trait:
+
+```php
+use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
+
+$user = User::find(1);
+$post = Post::find(1);
+
+// Using enum reaction types
+$user->reaction(LaravelReactionTypeEnum::REACTION_ANGRY, $post);
+
+// Using custom string reaction types
+$user->reaction('love', $post);
+```
+
+#### From Reactable Models
+
+Reactable content can also initiate reactions, which is useful when you want to handle reactions from the content's perspective:
+
+```php
+$post = Post::find(1);
+$user = User::find(1);
+
+// Specify the user explicitly
+$post->reaction('like', $user);
+
+// Use the currently authenticated user
+$post->reaction('like'); // Uses auth()->user()
+```
 
 ## Contributors
 
