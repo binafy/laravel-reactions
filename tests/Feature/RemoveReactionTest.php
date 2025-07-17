@@ -1,13 +1,19 @@
 <?php
 
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
+use Binafy\LaravelReaction\Events\RemoveAllReactionEvent;
+use Binafy\LaravelReaction\Events\RemoveReactionEvent;
+use Illuminate\Support\Facades\Event;
 use Tests\SetUp\Models\Post;
 use Tests\SetUp\Models\User;
 
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseMissing;
+use function PHPUnit\Framework\assertFalse;
 
 test('user can remove all reactions', function () {
+    Event::fake();
+
     $user = User::query()->first();
     $post = Post::query()->first();
 
@@ -20,9 +26,13 @@ test('user can remove all reactions', function () {
     // DB Assertions
     assertDatabaseMissing('reactions', ['reactable_id' => $post->id]);
     assertDatabaseCount('reactions', 0);
+
+    Event::assertDispatched(RemoveAllReactionEvent::class);
 });
 
 test('user can remove one reaction with enum', function () {
+    Event::fake();
+
     $user = User::query()->first();
     $post = Post::query()->first();
 
@@ -34,9 +44,13 @@ test('user can remove one reaction with enum', function () {
 
     // DB Assertions
     assertDatabaseCount('reactions', 1);
+
+    Event::assertDispatched(RemoveReactionEvent::class);
 });
 
 test('user can remove one reaction with custom type', function () {
+    Event::fake();
+
     $user = User::query()->first();
     $post = Post::query()->first();
 
@@ -48,6 +62,8 @@ test('user can remove one reaction with custom type', function () {
 
     // DB Assertions
     assertDatabaseCount('reactions', 1);
+
+    Event::assertDispatched(RemoveReactionEvent::class);
 });
 
 test('user can not remove one reaction when type is wrong', function () {
@@ -59,7 +75,7 @@ test('user can not remove one reaction when type is wrong', function () {
     // Remove reaction
     $isDeleted = $user->removeReaction('fun', $post);
 
-    \PHPUnit\Framework\assertFalse($isDeleted);
+    assertFalse($isDeleted);
 
     // DB Assertions
     assertDatabaseCount('reactions', 1);
@@ -107,6 +123,8 @@ test('user can remove all reactions with reactable', function () {
 });
 
 test('login user can remove all reactions with reactable', function () {
+    Event::fake();
+
     $user = User::query()->first();
     auth()->login($user);
 
@@ -119,4 +137,6 @@ test('login user can remove all reactions with reactable', function () {
 
     // DB Assertions
     assertDatabaseCount('reactions', 0);
+
+    Event::assertDispatched(RemoveAllReactionEvent::class);
 });

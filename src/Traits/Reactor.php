@@ -2,6 +2,9 @@
 
 namespace Binafy\LaravelReaction\Traits;
 
+use Binafy\LaravelReaction\Events\RemoveAllReactionEvent;
+use Binafy\LaravelReaction\Events\RemoveReactionEvent;
+use Binafy\LaravelReaction\Events\StoreReactionEvent;
 use Binafy\LaravelReaction\Models\Reaction;
 use Binafy\LaravelReaction\Contracts\HasReaction;
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
@@ -22,12 +25,18 @@ trait Reactor
             $type = $type->value;
         }
 
-        return $reactable->reactions()->firstOrCreate([
+        // Store reaction
+        $reaction = $reactable->reactions()->firstOrCreate([
             $userForeignName => $this->getKey(),
             'type' => $type,
             'reactable_id' => $reactable->getKey(),
             'reactable_type' => $reactable::class,
         ]);
+
+        // Dispatch event
+        StoreReactionEvent::dispatch($reaction);
+
+        return $reaction;
     }
 
     /**
@@ -40,6 +49,9 @@ trait Reactor
         $reactable->reactions()
             ->where([$userForeignName => $this->getKey()])
             ->delete();
+
+        // Dispatch event
+        RemoveAllReactionEvent::dispatch();
 
         return true;
     }
@@ -64,6 +76,9 @@ trait Reactor
         }
 
         $reactable->delete();
+
+        // Dispatch event
+        RemoveReactionEvent::dispatch();
 
         return true;
     }

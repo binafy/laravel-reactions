@@ -1,6 +1,8 @@
 <?php
 
 use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
+use Binafy\LaravelReaction\Events\StoreReactionEvent;
+use Illuminate\Support\Facades\Event;
 use Tests\SetUp\Models\Post;
 use Tests\SetUp\Models\User;
 
@@ -47,4 +49,20 @@ test('login user can store reaction from reactionble', function () {
 
     assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
     assertDatabaseCount('reactions', 1);
+});
+
+test('login user can store reaction from reactionble with dispatching event', function () {
+    Event::fake();
+
+    $user = User::query()->first();
+    auth()->login($user);
+
+    $post = Post::query()->first();
+
+    $post->reaction('fun');
+
+    assertDatabaseHas('reactions', ['user_id' => $user->id, 'type' => 'fun']);
+    assertDatabaseCount('reactions', 1);
+
+    Event::assertDispatched(StoreReactionEvent::class);
 });
