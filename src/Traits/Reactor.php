@@ -2,6 +2,7 @@
 
 namespace Binafy\LaravelReaction\Traits;
 
+use Binafy\LaravelReaction\Events\RemoveAllReactionEvent;
 use Binafy\LaravelReaction\Events\RemoveReactionEvent;
 use Binafy\LaravelReaction\Events\StoreReactionEvent;
 use Binafy\LaravelReaction\Models\Reaction;
@@ -48,6 +49,9 @@ trait Reactor
         $reactable->reactions()
             ->where([$userForeignName => $this->getKey()])
             ->delete();
+
+        // Dispatch event
+        RemoveAllReactionEvent::dispatch();
 
         return true;
     }
