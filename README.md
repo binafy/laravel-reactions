@@ -56,9 +56,11 @@ php artisan vendor:publish --provider="Binafy\LaravelReaction\Providers\LaravelR
 
 ## Usage
 
-### SetUp Model
+### Setting Up Your Models
 
-Reactor:
+Before using reactions, your models need the appropriate traits. User models require the Reactor trait to create reactions, while content models require the Reactable trait to receive reactions.
+
+#### User Model Setup
 
 ```php
 use Binafy\LaravelReaction\Traits\Reactor;
@@ -69,7 +71,7 @@ class User extends Authenticatable
 }
 ```
 
-Reactable:
+#### Content Model Setup
 
 ```php
 use Binafy\LaravelReaction\Contracts\HasReaction;
@@ -80,6 +82,8 @@ class Post extends Model implements HasReaction
     use Reactable;
 }
 ```
+
+
 
 ## Contributors
 
