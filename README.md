@@ -119,6 +119,25 @@ $post->reaction('like', $user);
 $post->reaction('like'); // Uses auth()->user()
 ```
 
+### Checking Reactions
+
+You can check whether content has been reacted to by specific users using the isReacted() method:
+
+```php
+$post = Post::find(1);
+$user = User::find(1);
+
+// Check if specific user reacted
+if ($post->isReacted($user)) {
+    echo "User has reacted to this post";
+}
+
+// Check if currently authenticated user reacted
+if ($post->isReacted()) {
+    echo "You have reacted to this post";
+}
+```
+
 ## Contributors
 
 Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-reactions/graphs/contributors).
