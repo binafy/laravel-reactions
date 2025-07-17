@@ -2,12 +2,12 @@
 
 namespace Binafy\LaravelReaction\Traits;
 
+use Binafy\LaravelReaction\Contracts\HasReaction;
+use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Binafy\LaravelReaction\Events\RemoveAllReactionEvent;
 use Binafy\LaravelReaction\Events\RemoveReactionEvent;
 use Binafy\LaravelReaction\Events\StoreReactionEvent;
 use Binafy\LaravelReaction\Models\Reaction;
-use Binafy\LaravelReaction\Contracts\HasReaction;
-use Binafy\LaravelReaction\Enums\LaravelReactionTypeEnum;
 use Illuminate\Database\Eloquent\Concerns\HasRelationships;
 
 trait Reactor
