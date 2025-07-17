@@ -138,6 +138,41 @@ if ($post->isReacted()) {
 }
 ```
 
+### Basic Reaction Queries
+
+The `Reactable` trait provides several methods for querying reaction data:
+
+#### Counting Reactions by Type
+
+```php
+$post = Post::find(1);
+
+// Count specific reaction type
+$likeCount = $post->getReactCountByType('like');
+$angryCount = $post->getReactCountByType(LaravelReactionTypeEnum::REACTION_ANGRY);
+```
+
+#### Getting All Reaction Counts
+
+```php
+$post = Post::find(1);
+
+// Returns collection with type => count pairs
+$reactionCounts = $post->getReactionsWithCount();
+// Example result: ['like' => 5, 'love' => 3, 'angry' => 1]
+```
+
+#### Getting Reactors
+
+```php
+$post = Post::find(1);
+
+// Get all users who reacted to this post
+$reactors = $post->getReactors();
+```
+
+
+
 ## Contributors
 
 Thanks to all the people who contributed. [Contributors](https://github.com/binafy/laravel-reactions/graphs/contributors).
