@@ -121,13 +121,13 @@ $post->reaction('like'); // Uses auth()->user()
 
 ### Checking Reactions
 
-You can check whether content has been reacted to by specific users using the isReacted() method:
+You can check whether content has been reacted to by specific users using the `isReacted()` method:
 
 ```php
 $post = Post::find(1);
 $user = User::find(1);
 
-// Check if specific user reacted
+// Check if a specific user reacted
 if ($post->isReacted($user)) {
     echo "User has reacted to this post";
 }
